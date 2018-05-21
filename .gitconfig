@@ -1,14 +1,27 @@
-[core]
-	excludesfile = /Users/yskn_e-sports/.gitignore_global
-	editor = vim
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [user]
-	name = Yoshiken
-	email = yskn.beer@gmail.com
-[push]
-	default = simple
+    name = yoshiken
+    email = yskn.beer@gmail.com
+[merge]
+    uf = false
+[color]
+    ui = auto
+[alias]
+    alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+    s = status --short --branch
+    st = status
+    l = log --graph -n 20 --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(green)- %an, %cr%Creset'
+    b = branch -a
+    br = browse-remote
+    d = diff
+    c = checkout
+    cm = checkout master
+[browse-remote "github.com"]
+    top = https://{host}/{path}
+    ref = https://{host}/{path}/tree/{short_ref}
+    rev = https://{host}/{path}/commit/{commit}
+    pr = https://{host}/{path}/pull/{short_ref}
+    file = "https://{host}/{path}/{file.directory? and :tree or :blob}/{short_rev}/{file}{lines && \"#L%s\" % lines.join(\"-\")}"
+[core]
+    editor = vim
+[commit]
+    template = /Users/Yoshida/.gitmessage.txt
